@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Absctract}{2}{section.1}
+\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{2}{section.2}
+\contentsline {section}{\numberline {3}El Modelo}{3}{section.3}
+\contentsline {section}{\numberline {4}Resolucion de la ecuacion diferencial}{4}{section.4}
+\contentsline {section}{\numberline {5}Diferentes tipos de dinamicas}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Regular spiking (RS)}{6}{subsection.5.1}
+\contentsline {section}{\numberline {6}Referencias}{7}{section.6}
