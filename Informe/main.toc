@@ -1,8 +1,20 @@
 \contentsline {section}{\numberline {1}Absctract}{2}{section.1}
-\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{2}{section.2}
-\contentsline {section}{\numberline {3}El Modelo}{3}{section.3}
-\contentsline {section}{\numberline {4}Resolucion de la ecuacion diferencial}{4}{section.4}
-\contentsline {section}{\numberline {5}Diferentes tipos de dinamicas}{5}{section.5}
-\contentsline {subsection}{\numberline {5.1}Celulas corticales exitatorias}{5}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Regular spiking (RS)}{6}{subsubsection.5.1.1}
-\contentsline {section}{\numberline {6}Referencias}{7}{section.6}
+\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{3}{section.2}
+\contentsline {section}{\numberline {3}El Modelo}{4}{section.3}
+\contentsline {section}{\numberline {4}Resolucion de la ecuacion diferencial}{5}{section.4}
+\contentsline {section}{\numberline {5}Diferentes tipos de dinamicas}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}Celulas corticales exitatorias}{6}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Regular spiking (RS)}{7}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Intrinsically bursting (IB)}{8}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Chattering (CH)}{9}{subsubsection.5.1.3}
+\contentsline {subsection}{\numberline {5.2}Celulas corticales inhibitorias}{10}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Fast spiking (FS)}{10}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Low threshold spiking}{10}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Otros tipos de neuronas}{11}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Thalamo-cortical TC}{11}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Resonator (RZ)}{13}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Concluciones sobre dinamicas de neuronas}{13}{subsection.5.4}
+\contentsline {section}{\numberline {6}Simulaci\IeC {\'o}n de pulso acoplado}{14}{section.6}
+\contentsline {subsection}{\numberline {6.1}Modelo usado para las simulaciones}{15}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Simulaci\IeC {\'o}n}{15}{subsection.6.2}
+\contentsline {section}{\numberline {7}Referencias}{17}{section.7}

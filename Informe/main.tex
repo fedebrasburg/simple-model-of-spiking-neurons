@@ -53,7 +53,7 @@ Estas ultimas neuronas son las que se utilizand para generar modelos de Machine 
 Por fuera del paper original, se probó el modelo propuesto con diferentes paramentros y distintas cantidades neuronas conectadas.
 \\ \\
 Palabras clave: Bursting, Hodgkin–Huxley, PCNN, neuronas de integracion y disparo, spiking, corteza cerebral.
-
+\newpage
 \section{Introducción}
 Para entender como funciona el cerebro humano, se necesita combinar estudios experimentales sobre sistemas nerviosos de animales y humanos con simulaciones numericas de gran escala de modelos cerebrales.
 Al momento de desarrollar modelos de neuronas spiking, se tienen siempre dos requerimientos que son aparentemente mutualmente excluyentes sobre cada neurona:
@@ -154,7 +154,187 @@ Todas las celulas corticales exitatorias pueden ser divididas en tres clases \ci
 
 \newpage
 \subsubsection{Regular spiking (RS)}
-fede
+Las neuronas de tipo \textit{Regaular spiking} (Disparos regulares, a partir de ahora RS) son las neuronas mas comunes del cortex cerebral. Cuando se le aplica un estimulado prolongado en el tiempo (como en la realizacion de esta simulación)
+dispara algunas veces (entre 2 y 4 veces) con un periodo entre disparos pequeño y luego el periodo incrementa (dich comportamiento se puede aprecias en al figura 2). Esa transicion entre periodos entre disparos se llama \textit{adaptacion de frecuencia de disparos}.
+Si se incrementa la intensidad del estimulo entonces aumenta la la frecuencia de disparos (figura 3), aunque tiene un limite la frecuencia (no puede tender a infinito) por el tiempo de recuperacion de la neurona.
+Para generar este tipo de neuronas los parametros del modelo corresponden a $c = 65$ mV (teniendo en cuenta que
+es el voltaje utilizado para el reset de la neurona es muy bajo) y $d=8$.
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[height=8cm]{images/RS_I10.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper. Se puede ver el fenomeno descripto anteriormente, al pricipio con un periodo pequeño entre disparos y luego aumenta}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/RS_I20.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper. Se ve que al duplicar la intensidad del estimulo entonces la frecuencia de disparos aumenta}
+\end{figure}
+ \newpage
+
+\subsubsection{Intrinsically bursting (IB)}
+
+Las neuronas de tipo \textit{Intrinsically bursting} (estallido intrinseco, a partir de ahora IB)
+disparan un clasico estallido de disparos al comenzar a recibir el estimulo seguido luego de repetidos disparos unicos con una frecuencia constante (figura 4).
+En el modelo, esta neurona se corresponde a los siguientes parametros: $c = -55 mv$ (alto voltaje para el rest) y $d = 4$ (salto grande de $u$ luego de un disparo).
+Durante el estallido inicial $u(v)$ va creciendo hasta que eventualmente cambia la dinamica de los disparos para pasar de estallidos a disparos regulares. \\
+
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/IB.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo IB. Se vislumbra claramente el estallido inicial seguido disparos regulares}
+\end{figure}
+\newpage
+
+ \subsubsection{Chattering (CH)}
+
+ Las neuronas de tipo \textit{Chattering} (parloteo, a partir de ahora CH) disparan estallidos clasicos de disparos separados por muy poco espacio (figura 5). A diferencia de las IB, este tipo de neuronas solo dispara estallidos, en ningun momento dispara disparos regulares del estilo RS.
+
+ \begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/CH.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper. Se pueden ver los estallidos mencionados en el paper}
+\end{figure}
+
+Los paramentros del modelo para CH se corresponden a $c = -50$ mV (un voltaje muy alto para el reset) y $d = 2$ (un salto de $u$ moderado luego de cada disparo).
+
+\subsection{Celulas corticales inhibitorias}
+Todas las celulas corticales inhibitorias pueden ser divididas en las siguientes dos clases \cite{inhibitorias}:
+
+\subsubsection{Fast spiking (FS)}
+Las neuronas de tipo ]\textit{Fast spiking} (disparos rapidos, a partir de ahora FS) pueden disparar trenes de disparos con una frecuancia extremedamente alta sin practicamente periodo de adaptacion.
+Para esta neurona el paramentro que hay que modificar es $a = 0.1$ para una rapida recuperación.
+
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/FS.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo FS. Se pueden ver la alta frecuencia (constante) de disparos}
+\end{figure}
+
+\subsubsection{Low threshold spiking}
+Las neurnas de tipo \textit{Low threshold spiking} tambien pueden disparar trenes de disparos de alta frecuencia pero con una notable adaptacion de la frecuencia de disparo. Estas neuronas tienen un limite (threshold)
+de disparo bajo que se logra adaptando el parametro $b$ seteandolo en $0.25$
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/LTS.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo LTS. Debido al limite bajo, se ve una simulacion semejante a la de neurnas FS}
+\end{figure}
+\newpage
+
+\subsection{Otros tipos de neuronas}
+El modelo puede tamien reproducir otros tipos interesantes de dinamicas
+
+\subsubsection{Thalamo-cortical TC}
+Las neuronas de tipo \textit{Thalamo-cortical} (thalamo-corticales, a partir de ahora TC) tienen dos tipos de regímenes de disparos:
+Cuando estan en repso (el potencial ronda los $-60 mV$) y luego cuando son despolarizadas, exhiben disparos tónicos semejantes a los de una neurona RS (figura 8). \\
+Por otro lado, si se entrega un paso de corriente negativo para que el potencial de membrana se hiperpolarice (con un voltaje semejante a $-90 mV$), la neurona dispara un estallido como una neurona (IB) (figura 9).
+Es importante mencionar que en este segundo paso el estimulo tiene que empezar con un estimulo negativo ($-10mV$) y luego dejar de estimular, al dejar de estimular se reproduce el estallido.
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/TC_normal.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo TC sin hiperpolarización. Se ve un comportamiento semejante a una RS pero con una frecuencia de disparo alta}.
+\end{figure}
+\newpage
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/TC_hiper.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo TC con hiperpolarización. Se ve que al dejar de estimular negativamente se producen algunos disparos y luego no sucede nada mas}.
+\end{figure}
+\newpage
+
+\subsubsection{Resonator (RZ)}
+Las neuronas de tipo \textit{Resonator} (resonadoras, a partir de ahora RZ) tienen oscilaciones subliminales amortiguadas. Estas neuronas resuenan a entradas rítmicas que tienen la frecuencia apropiada.
+Este comportamiento correspende a $a = 0.1$ y $b = 0.26$. \\
+Es interesante notar que hay una biestabilidad de los estados de reposo y RS: la neurona puede cambiar entre los estados por estímulos breves adecuadamente programados.
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/RZ.png}
+    \caption[fontsize=2pt]{Imagen simulada con los paramentros del paper para la neuronas tipo RZ. Se puede ver que con el inicio de los estimulos cambia la frecuencia de disparos}.
+\end{figure}
+
+\subsection{Concluciones sobre dinamicas de neuronas}
+
+Otras dinamicas de neuronas pueden tambier ser descriptas por el modelo presentado en el paper, como poe kemplo las de hipocampo, las de los ganglios basales, las de tronco encefalico, etc. \\ \\
+En el paper original tambien se menciona que la ecuación (1), especificamente la parte de $0.04 v(t)^2 + 5 v(t) + 140$, del modelo propuesto se justifica para simulaciones de gran cantidad de neuronas en simultaneo.
+Si se tiene interes en el comportamiento de una sola neurona, existe otras opciones de la funcion mas adecuadas. Por ejemplo la ecuación $0.04 v(t)^2 + 4.1 v(t) + 108$ con un parametro $b = -1$ es una mejor opción para la simulación de neuronas RS, por que
+estos parametros llevan a un saddle-node en una birfucación de circulo y una exitacion de clase 1. \cite{saddleNode}
+
+\section{Simulación de pulso acoplado}
+El paper menciona que este modelo fue usar para correr una red de 10000 neuronas corticales de disparos con 1000000 conecciones sinapticas en tiempo real con resolución de 1ms en una computadora de escritorio de 1Ghz.
+Luego se propone un código en matlab que simula una red de 1000 neuronas conectadas aleatoriamente en tiempo real. \\ \\
+Con la idea de replicar la corteza cerebral de los mamiferos, se eligio que la relación entre neuronas exitatorias comparado a las inhibitorias sea de 4 a 1 y que las conecciones inhibitorias sean mas fuertes que las exitatorias (casi el doble de fuertes).
+Ademas de la entrada sinaptica, cada neurona ademas recibe estimulacion thalamica. \\ \\
+
+En principio, se podria usar celulas RS para modelar todas las celular exitatorias y FS para modelar todas las inhibitorias. Para lograr esto de manera hetereogenea (para que diferentes neuronas tengan diferentes dinamicas)
+se asignaron los parametros $a, \ b, \ c \ y \ d$ correspondietes a las FS y RS pero agregandoles un compomente aleatorio. \\
+Para las células exitatorias se asignó:
+\begin{itemize}
+    \item $a_i = 0.02$
+    \item $b_i = 0.2$
+    \item $c_i = -65 + 15 * r^2$
+    \item $d_i = 8 - 6 * r^2$
+\end{itemize}
+
+Siendo $r_i$ una variable aleatoria uniformemente distribuida en $[0,1 ]$. $i$ es el indice de la neurona. De esta manaera si $r_i = 1$ corresponderia a una neurona CH y si $r_i = 0$ corresponderia a una RS.\\
+\\
+Para las células inhibbitorias se asignó:
+\begin{itemize}
+    \item $a_i = 0.02 + 0.08 * r_i$
+    \item $b_i = 0.25 - 0.05 * r_i$
+    \item $c_i = -65$
+    \item $d_i = 2$
+\end{itemize}
+
+El modelo creado corresponde a la clase de redes neuronales de pulso acoplado (PCNN).
+\newpage
+\subsection{Modelo usado para las simulaciones}
+Si bien el código propuesto en el paper esta escrito en lenguaje $MatLab$ \cite{MatLab}, para la simulación de la red se implemento en lenguaje $Python$ \cite{Python}.
+Se realizo en un lenguaje distinto por distintos motivos, primero se considero que tendria mas valor intentar replicar una simulación en un lenguaje distinto al propuesto en el paper
+para mostrar una correcta apreciacion del modelo (y del código) original. Se tuvo que aprender $MatLab$ para luego poder hacerla simulación en código $Python$ \\
+Por otro lado, el diseño del código implementado en $Python$ es muy distinto al original, se intento hacer un diseño totalemnte orientado a objectos y mucho mas extensile para otras futuras pruebas.
+El original no era muy claro y era bastante pobre en cuanto a buenas prácticas de programación lo que hacia que fuese bastante dificil cambiar los parametros (o agregar nuevos) para futuros experimentos.
+
+\subsection{Simulación}
+El paper original toma una consideración a la hora de ejecutar la simulación que es la de normalizar los disparos. Lo que propone es que cuando el voltaje de la neurona supera el umbral para ser reseteada (30mV)
+entonces se setea el voltaje en 30mV y luego se hace el reset. Esta consideración la menciona en la descripción de la imagen del resultado obtenido pero no la implementa en el código.
+Lo que se hizo para replicar la simulación es hacer el experimento dos veces: una con la consideración del paper orgiinal y otra sin la misma.
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoConNorm.png}
+    \caption[fontsize=2pt]{Resultado obtenido con la consideración}s.
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoSinNorm.png}
+    \caption[fontsize=2pt]{Resultado obtenido sin la consideración}.
+\end{figure}
+
+\newpage
+
+En ambas figuras el eje X es el tiempo y el eje Y es el indice de cada neurona. Como se mencionó anteriorimente, el experimento se realizó con 1000 neuronas aleatoriamente conectadas.
+Las neuronas azules son las neuronas inhibitorias y las rojas las exitatorias. \\ \\
+
+En ambas imagenes se puede ver que los patrones obtenidos son muy semejantes pero en el segundo caso (figura 12) con ruido.
+Esto se podria deber a que al tener la consideración en cuenta al disparar se agrega un estado intermedio entre el disparo y en reset:
+\begin{itemize}
+    \item Con la consideración: Al hacerse el disparo se setea $v$ en $30$ y en el siguiente instante de tiempo se lo setea en el valor de reset
+    \item Sin la consideración: AL hacerse el disparo se setea $v$ directamente al valor de reset.
+\end{itemize}
+
+Al agregar un estado mas, le da un tiempo mas a las neuronas vecinas para disparar entonces se genera un patron mucho mas ordenado. \\
+
+A pesar de esta diferencia entre resultados, en ambos se pudo lograr lo obtenido en el paper original que era el de replicar en una red conectada aleatoriamente disparos sincronizados de las neuronas.
+Al igual que en el original, las neuronas inhibitorias son las que mostraron mucho mas claramente la sincronización deseada.
+
 \newpage
 
 \section{Referencias}
@@ -191,6 +371,19 @@ B. W. Connrs y M. J Gutnick.
 \bibitem{chatteringCells}
 C. M. Gray y D. A. McCormick.
 \textit{Chattering cells: superficial pyramidal neurons contributing to the generation of synchronous oscillations in the visual cortex}. (Ingles) Science. vol 274, no. 5284, pp 109-113, 1996.
+
+\bibitem{inhibitorias}
+J. R. Gibson, M. Belerlein, and B. W. Connors,
+\textit{Two networks of elec- trically coupled inhibitory neurons in neocortex}. (Ingles) Nature, vol. 402, pp. 75–79, 1999.
+
+\bibitem{saddleNode}
+\textit{Neural excitability, spiking, and bursting}. (Ingles) Int. J. Bifurc. Chaos, vol. 10, pp. 1171–1266, 2000.
+
+\bibitem{MatLab}
+\textit{MatLab}. \url{https://www.mathworks.com/products/matlab.html}
+
+\bibitem{Python}
+\textit{Python}. \url{https://www.python.org/}
 
 \end{thebibliography}
 
