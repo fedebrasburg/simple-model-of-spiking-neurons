@@ -320,6 +320,13 @@ Lo que se hizo para replicar la simulación es hacer el experimento dos veces: u
 
 \newpage
 
+AGREGAR:
+- ejemplo neurona
+- resultado con todo doble
+- resultado con exitatorias x 4 --> DE este hay un ejemplo de neurona.
+- resultado con inhibtorias x 4
+- Resultado vacio, contar que a veces no sucede nada.
+
 En ambas figuras el eje X es el tiempo y el eje Y es el indice de cada neurona. Como se mencionó anteriorimente, el experimento se realizó con 1000 neuronas aleatoriamente conectadas.
 Las neuronas azules son las neuronas inhibitorias y las rojas las exitatorias. \\ \\
 
@@ -333,7 +340,26 @@ Esto se podria deber a que al tener la consideración en cuenta al disparar se a
 Al agregar un estado mas, le da un tiempo mas a las neuronas vecinas para disparar entonces se genera un patron mucho mas ordenado. \\
 
 A pesar de esta diferencia entre resultados, en ambos se pudo lograr lo obtenido en el paper original que era el de replicar en una red conectada aleatoriamente disparos sincronizados de las neuronas.
-Al igual que en el original, las neuronas inhibitorias son las que mostraron mucho mas claramente la sincronización deseada.
+Al igual que en el original, las neuronas inhibitorias son las que mostraron mucho mas claramente la sincronización deseada. \\
+
+Cambiando la intensidad relativa de las conecciones sinapticas (las conexiones entre neuronas) y la intensidad thalamica hacia cada neurona se pueden reproducir otros tipos de comportamientos
+colectivos, incluyendo ondas del huso y oscilaciones del sueño.
+
+Se puede observar y estudiar fácilmente estos estados corticales porque el modelo simple de disparos describe con precisión la dinámica de los tipos conocidos
+de neuronas corticales. Por lo tanto, ya no existe un dilema entre la plausibilidad biológica y la eficiencia computacional de las redes neuronales modelo.
+
+\section{Concluciones}
+
+Se pudo probar que el simple modelo propuesto reproduce el comportamiento de neuronas biologicas, incluyendo los disparos, los estallidos y mezclas de patrones. El paper propone que ese modelo es el modelo mas simple posible que puede reproducir el comportamiento de todas estas neuronas.
+Solo consiste en dos eucuaciones y tiene solo un elemento no lineal ($v(t)^2$). Aun asi, el modelo es canonico en el sentido de que la diferencia entre el mismo y toda la clase de modelos biofísicamente detallados y precisos de tipo Hodgkin-Huxley, incluyendo los que tienen una cantidad enorme de ecuaciones y tienen en cuenta mucha mas información es solo un tema de cambio de coordenadas. \\ \\
+
+Se motro como usar el modelo para generar redes de neuronas capaces de reproducir dinamicas y ritmos colectivos similares a los que se producen en un cortex de un mamifero.
+Al ser el modelo extremadamente simple computacionalmente, se puede usar para simular redes thalamicas-corticales que contengan miles y miles de neuronas en tiempo real con resolución de $1 ms$.
+
+Como conlución de la simulación del paper origianl, se puedieron replicar todos los casos mencionados en el mismo con las dificualtades ya mencionadas anteriormente este documento.
+A la vez, la realización de la simulación de este paper (y seguramente de cualquier otro) dio al autor de este documento una introducción a las publicaciones cientificas y a sus formatos, que no es algo muy comun
+a lo largo de la carrera. Por todo eso, el autor de este documento recomienda fuertemente esta experiencia que fue sumamente enriquecedora.
+
 
 \newpage
 
