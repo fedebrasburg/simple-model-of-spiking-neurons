@@ -17,5 +17,10 @@
 \contentsline {section}{\numberline {6}Simulaci\IeC {\'o}n de pulso acoplado}{14}{section.6}
 \contentsline {subsection}{\numberline {6.1}Modelo usado para las simulaciones}{15}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Simulaci\IeC {\'o}n}{15}{subsection.6.2}
-\contentsline {section}{\numberline {7}Concluciones}{17}{section.7}
-\contentsline {section}{\numberline {8}Referencias}{18}{section.8}
+\contentsline {subsection}{\numberline {6.3}Simulaciones extras}{17}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Simulacion con doble intensidad}{17}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Simulaci\IeC {\'o}n intensificando distintos tipos de neuronas}{18}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Comportamientos no esperados}{20}{subsubsection.6.3.3}
+\contentsline {section}{\numberline {7}Concluciones}{22}{section.7}
+\contentsline {section}{\numberline {8}Repositorio}{22}{section.8}
+\contentsline {section}{\numberline {9}Referencias}{23}{section.9}

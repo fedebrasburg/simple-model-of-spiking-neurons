@@ -318,14 +318,13 @@ Lo que se hizo para replicar la simulación es hacer el experimento dos veces: u
     \caption[fontsize=2pt]{Resultado obtenido sin la consideración}.
 \end{figure}
 
-\newpage
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=6cm, width=15cm]{images/ejemploNeurona.png}
+    \caption[fontsize=2pt]{Ejemplo de $v(t)$ en funcion del tiempo para la neurona 1. El eje X es el tiempo y el Y el potencial de la neurona}.
+\end{figure}
 
-AGREGAR:
-- ejemplo neurona
-- resultado con todo doble
-- resultado con exitatorias x 4 --> DE este hay un ejemplo de neurona.
-- resultado con inhibtorias x 4
-- Resultado vacio, contar que a veces no sucede nada.
+\newpage
 
 En ambas figuras el eje X es el tiempo y el eje Y es el indice de cada neurona. Como se mencionó anteriorimente, el experimento se realizó con 1000 neuronas aleatoriamente conectadas.
 Las neuronas azules son las neuronas inhibitorias y las rojas las exitatorias. \\ \\
@@ -340,13 +339,84 @@ Esto se podria deber a que al tener la consideración en cuenta al disparar se a
 Al agregar un estado mas, le da un tiempo mas a las neuronas vecinas para disparar entonces se genera un patron mucho mas ordenado. \\
 
 A pesar de esta diferencia entre resultados, en ambos se pudo lograr lo obtenido en el paper original que era el de replicar en una red conectada aleatoriamente disparos sincronizados de las neuronas.
-Al igual que en el original, las neuronas inhibitorias son las que mostraron mucho mas claramente la sincronización deseada. \\
+Al igual que en el original, las neuronas inhibitorias son las que mostraron mucho mas claramente la sincronización deseada. Se tambien que los disparos no son aleatorios, sino que siguen un ritmo (frecuencia constante). \\
 
 Cambiando la intensidad relativa de las conecciones sinapticas (las conexiones entre neuronas) y la intensidad thalamica hacia cada neurona se pueden reproducir otros tipos de comportamientos
 colectivos, incluyendo ondas del huso y oscilaciones del sueño.
 
 Se puede observar y estudiar fácilmente estos estados corticales porque el modelo simple de disparos describe con precisión la dinámica de los tipos conocidos
 de neuronas corticales. Por lo tanto, ya no existe un dilema entre la plausibilidad biológica y la eficiencia computacional de las redes neuronales modelo.
+
+\subsection{Simulaciones extras}
+A partir de la simulación propuesta por el paper original se hicieron otras simulaciones para intentar generar otras dinamicas.
+
+\subsubsection{Simulacion con doble intensidad}
+Para este experimento se duplicó el peso de todas las conecciones entre neuronas al doble. Las inhibitorias eran multiplicadas por un factor de $-1$ el cual paso a $-2$.
+El factor de las exitatorias paso de ser $0.5$ a $1$. El resultado obtenido fue el siguiente:
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoDobleAmbos.png}
+    \caption[fontsize=2pt]{Resultado obtenido duplicando la intensidad de los pesos de todas als neuronas sin importar el tipo}.
+\end{figure}
+
+\newpage
+
+Se puede ver que los disparos estan muy sincronizados, inclusive para las neuronas exitatorias que era algo que no pasaba en las simulaciones corridas con los parametros propuestos por el paper.
+Tambien se ve clararamente que los disparos no son aleatorios si no que siguen un ritmo (tienen aparentemente una frecuencia constante).
+
+\subsubsection{Simulación intensificando distintos tipos de neuronas}
+Para este experimento se hicieron dos simulaciones:
+\begin{itemize}
+    \item Cuadriplicando el factor multiplicador de las neuronas exitatorias por cuatro: pasó de $0.5$ a $2$, dejando por default el multiplicador de las inhibitorias. Figura 16.
+    \item Cuadriplicando el factor multiplicador de las neuronas inhibitorias por cuatro: pasó de $-1$ a $-4$, dejando por default el multiplicador de las exitatorias. Figura 15.
+\end{itemize}
+
+\begin{figure}[htp!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoCuadrupleInhibitoria.png}
+    \caption[fontsize=2pt]{Resultado obtenido cuadriplicando el factor de multiplicación del peso de las inhibitorias}.
+\end{figure}
+
+
+\begin{figure}[htp!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoCuadrupleExitatorias.png}
+    \caption[fontsize=2pt]{Resultado obtenido cuadriplicando el factor de multiplicación del peso de las exitatorias}.
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+        \includegraphics[height=6cm, width=15cm]{images/ejemploNeuronaCuadrupleExitatoria.png}
+    \caption[fontsize=2pt]{Ejemplo de $v(t)$ en funcion del tiempo para la neurona 1 para el caso que se cuadriplica el factor del peso de las exitatorias}.
+\end{figure}
+
+\newpage
+
+Se pueden sacar varias concluciones a partir de la comparación entre ambas simulaciones y en comparación a las simulaciones previamente realizadas:
+\begin{itemize}
+    \item Se puede ver en la figura 16 que al hacer mas intensas a las exitatorias, el ritmo de las neuronas es mucho mas claro y ademas tiene un frecuencia mayor a la original (figura 11).
+    \item En la figura 15 se ve un ritmo con mucha menor frecuencia y con mucho mas ruido, entonces podemos concluir que es la intensidad de las exitatorias (que en esta simulación era el por defecto)
+    la que hace una mejor sincronizacion entre las neuronas. Es importante aclarar que en este caso las inhibitorias son las que tienen mas intensidad de lo normal y eso podria generar el ruido.
+    \item En la figura 17, que es una neurona exitatoria del experimento de la figura 16, se ve que las neuronas pasan a tener un comportamiento mas parecido a una neurona del tipo CH y no tanto RS, que es el comportamiento mas comun en el experimento original (se puede comparar con la figura 13).
+\end{itemize}
+
+\subsubsection{Comportamientos no esperados}
+Es importante destacar que no siempre se pudieron generar las imagenes deseadas, hubo casos para los cuales la aleatoriedad de los pesos no le dió suficente intensidad a las neuronas exitatorias haciendo que haya realmente muy pocos disparos.
+En la figura 18 se puede ver uno de esos casos.
+
+\begin{figure}[htp!]
+    \centering
+        \includegraphics[height=8cm]{images/resultadoVacio.png}
+    \caption[fontsize=2pt]{Resultado con pocos disparos. En la figura se puede ver en el eje Y que llega hasta 800, lo que significa que las neuronas que van del 801 al 1000 no dispararon nunca (inhibitorias)}.
+\end{figure}
+
+\newpage
+
+Se puede ver en el grafico que las únicas neuronas que disparon fueron las exitatorias. Se puede ver que hay una cantidad mucho menor de disparos comparado con un escenario normal como el de la figura 12 por ejemplo.
+Es un caso que se genera aproximadamente una de cada cuatro simulaciones.
+
+\newpage
 
 \section{Concluciones}
 
@@ -360,6 +430,9 @@ Como conlución de la simulación del paper origianl, se puedieron replicar todo
 A la vez, la realización de la simulación de este paper (y seguramente de cualquier otro) dio al autor de este documento una introducción a las publicaciones cientificas y a sus formatos, que no es algo muy comun
 a lo largo de la carrera. Por todo eso, el autor de este documento recomienda fuertemente esta experiencia que fue sumamente enriquecedora.
 
+\section{Repositorio}
+Todos los experimentos fueron realizados con el código que se puede encontrar en el siguiente repositorio: \\
+\url{https://github.com/fedebrasburg/simple-model-of-spiking-neurons}
 
 \newpage
 
