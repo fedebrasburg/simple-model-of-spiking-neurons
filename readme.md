@@ -1,6 +1,6 @@
 # Trabajo final - Simulación
 
-Este el el reopositorio del trabajo final de la materia Simulación realizado en el segundo cuatrimestre del añ0 2019. El objetivo principal fue el de replicar un paper cientifico, el elegido para este trabajo fue `Simple Model of Spiking Neurons - Izhikevich - 2003`
+Este el el repositorio del trabajo final de la materia Simulación realizado en el segundo cuatrimestre del añ0 2019 por Federico Brasburg (padrón 96653). El objetivo principal fue el de replicar un paper cientifico, el elegido para este trabajo fue `Simple Model of Spiking Neurons - Izhikevich - 2003`
 
 ## Como correr las simulaciones
 
