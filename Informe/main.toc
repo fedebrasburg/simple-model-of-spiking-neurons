@@ -11,7 +11,7 @@
 \contentsline {subsubsection}{\numberline {5.2.1}Fast spiking (FS)}{10}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}Low threshold spiking}{10}{subsubsection.5.2.2}
 \contentsline {subsection}{\numberline {5.3}Otros tipos de neuronas}{11}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}Thalamo-cortical TC}{11}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1}Thalamo-cortical (TC)}{11}{subsubsection.5.3.1}
 \contentsline {subsubsection}{\numberline {5.3.2}Resonator (RZ)}{13}{subsubsection.5.3.2}
 \contentsline {subsection}{\numberline {5.4}Concluciones sobre dinamicas de neuronas}{13}{subsection.5.4}
 \contentsline {section}{\numberline {6}Simulaci\IeC {\'o}n de pulso acoplado}{14}{section.6}
@@ -21,6 +21,7 @@
 \contentsline {subsubsection}{\numberline {6.3.1}Simulacion con doble intensidad}{17}{subsubsection.6.3.1}
 \contentsline {subsubsection}{\numberline {6.3.2}Simulaci\IeC {\'o}n intensificando distintos tipos de neuronas}{18}{subsubsection.6.3.2}
 \contentsline {subsubsection}{\numberline {6.3.3}Comportamientos no esperados}{20}{subsubsection.6.3.3}
-\contentsline {section}{\numberline {7}Concluciones}{22}{section.7}
-\contentsline {section}{\numberline {8}Repositorio}{22}{section.8}
-\contentsline {section}{\numberline {9}Referencias}{23}{section.9}
+\contentsline {section}{\numberline {7}Bonus: Nest}{22}{section.7}
+\contentsline {section}{\numberline {8}Concluciones}{24}{section.8}
+\contentsline {section}{\numberline {9}Repositorio}{24}{section.9}
+\contentsline {section}{\numberline {10}Referencias}{25}{section.10}
