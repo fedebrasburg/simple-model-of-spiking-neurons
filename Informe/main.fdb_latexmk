@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1575514730 "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.tex" "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.pdf" "main" 1575514734
-  "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.aux" 1575514734 9841 5de110843aa6e185bc580e32c65547f4 ""
-  "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.tex" 1575514727 34495 8ba34bea77623852f966ec008e857254 ""
+["pdflatex"] 1575605138 "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.tex" "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.pdf" "main" 1575605142
+  "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.aux" 1575605141 9904 5163c13be0584e6fedf9667790b517ca ""
+  "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.tex" 1575605138 35273 e6838fc45d5297ce3e94bbc90da17d13 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -115,13 +115,13 @@
   "images/resultadoDobleAmbos.png" 1575342024 106911 2b334f553de34ea1853401f0d410ba5c ""
   "images/resultadoSinNorm.png" 1575255349 1348927 83521620b4eabb1a7af8a8800fd622cf ""
   "images/resultadoVacio.png" 1575341763 81290 0c4d155d37519a53f27778c9b655fb9b ""
-  "main.aux" 1575514734 9841 5de110843aa6e185bc580e32c65547f4 ""
-  "main.tex" 1575514727 34495 8ba34bea77623852f966ec008e857254 ""
-  "main.toc" 1575514734 2441 03ad12356682c6a3aa84e92a51b570b1 ""
+  "main.aux" 1575605141 9904 5163c13be0584e6fedf9667790b517ca ""
+  "main.tex" 1575605138 35273 e6838fc45d5297ce3e94bbc90da17d13 ""
+  "main.toc" 1575605141 2478 b7d8d06f47923dc9f19a8935d9e6667b ""
   (generated)
-  "main.log"
   "main.aux"
   "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.pdf"
+  "main.log"
   "/Users/fede/Desktop/simple-model-of-spiking-eurons/Informe/main.log"
   "main.pdf"
   "main.toc"
